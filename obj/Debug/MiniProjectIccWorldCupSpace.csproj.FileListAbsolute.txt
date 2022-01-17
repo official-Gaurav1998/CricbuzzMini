@@ -1,0 +1,17 @@
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\MiniProjectIccWorldCupSpace.exe.config
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\MiniProjectIccWorldCupSpace.exe
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\MiniProjectIccWorldCupSpace.pdb
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.csproj.AssemblyReference.cache
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.Main_Window.resources
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.Properties.Resources.resources
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.csproj.GenerateResource.cache
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.csproj.CoreCompileInputs.cache
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.exe
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.pdb
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.HomeWindow.resources
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.AdminSignupInfo.resources
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\obj\Debug\MiniProjectIccWorldCupSpace.AdminOnly.resources
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\EntityFramework.dll
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\EntityFramework.SqlServer.dll
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\EntityFramework.xml
+D:\One-Drive\OneDrive\Desktop\Mini Case Study\MiniProjectIccWorldCupSpace\bin\Debug\EntityFramework.SqlServer.xml

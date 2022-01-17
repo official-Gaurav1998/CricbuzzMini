@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdminDBIccWorldCupModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminDetails">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Department_ID" Type="int" />
+    <Property Name="Email_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact_No" Type="bigint" />
+    <Property Name="Last_Project" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CountryDetail">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MATCH_DETAILS">
+    <Key>
+      <PropertyRef Name="MatchNo" />
+    </Key>
+    <Property Name="MatchNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Venue" Type="varchar" MaxLength="50" />
+    <Property Name="DateAndTime" Type="datetime" />
+    <Property Name="Matches" Type="varchar" MaxLength="50" />
+    <Property Name="country1" Type="int" />
+    <Property Name="country2" Type="int" />
+  </EntityType>
+  <EntityType Name="Players_Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_name" Type="char" MaxLength="50" />
+    <Property Name="L_name" Type="char" MaxLength="50" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="City" Type="char" MaxLength="50" />
+    <Property Name="Skill" Type="char" MaxLength="50" />
+    <Property Name="Designation" Type="char" MaxLength="50" />
+    <Property Name="Country_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__MATCH_DET__count__412EB0B6">
+    <End Role="CountryDetail" Type="Self.CountryDetail" Multiplicity="0..1" />
+    <End Role="MATCH_DETAILS" Type="Self.MATCH_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryDetail">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="MATCH_DETAILS">
+        <PropertyRef Name="country1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MATCH_DET__count__4222D4EF">
+    <End Role="CountryDetail" Type="Self.CountryDetail" Multiplicity="0..1" />
+    <End Role="MATCH_DETAILS" Type="Self.MATCH_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryDetail">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="MATCH_DETAILS">
+        <PropertyRef Name="country2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CounPlayer">
+    <End Role="CountryDetail" Type="Self.CountryDetail" Multiplicity="1" />
+    <End Role="Players_Detail" Type="Self.Players_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryDetail">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Players_Detail">
+        <PropertyRef Name="Country_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdminDBIccWorldCupModelStoreContainer">
+    <EntitySet Name="AdminDetails" EntityType="Self.AdminDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryDetail" EntityType="Self.CountryDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATCH_DETAILS" EntityType="Self.MATCH_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players_Detail" EntityType="Self.Players_Detail" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__MATCH_DET__count__412EB0B6" Association="Self.FK__MATCH_DET__count__412EB0B6">
+      <End Role="CountryDetail" EntitySet="CountryDetail" />
+      <End Role="MATCH_DETAILS" EntitySet="MATCH_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MATCH_DET__count__4222D4EF" Association="Self.FK__MATCH_DET__count__4222D4EF">
+      <End Role="CountryDetail" EntitySet="CountryDetail" />
+      <End Role="MATCH_DETAILS" EntitySet="MATCH_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CounPlayer" Association="Self.FK_CounPlayer">
+      <End Role="CountryDetail" EntitySet="CountryDetail" />
+      <End Role="Players_Detail" EntitySet="Players_Detail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

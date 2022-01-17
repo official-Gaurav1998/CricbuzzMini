@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdminDBIccWorldCupModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminDetail">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Department_ID" Type="Int32" />
+    <Property Name="Email_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_No" Type="Int64" />
+    <Property Name="Last_Project" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CountryDetail">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MATCH_DETAILS" Relationship="Self.FK__MATCH_DET__count__412EB0B6" FromRole="CountryDetail" ToRole="MATCH_DETAILS" />
+    <NavigationProperty Name="MATCH_DETAILS1" Relationship="Self.FK__MATCH_DET__count__4222D4EF" FromRole="CountryDetail" ToRole="MATCH_DETAILS" />
+    <NavigationProperty Name="Players_Detail" Relationship="Self.FK_CounPlayer" FromRole="CountryDetail" ToRole="Players_Detail" />
+  </EntityType>
+  <EntityType Name="MATCH_DETAILS">
+    <Key>
+      <PropertyRef Name="MatchNo" />
+    </Key>
+    <Property Name="MatchNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Venue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateAndTime" Type="DateTime" Precision="3" />
+    <Property Name="Matches" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="country1" Type="Int32" />
+    <Property Name="country2" Type="Int32" />
+    <NavigationProperty Name="CountryDetail" Relationship="Self.FK__MATCH_DET__count__412EB0B6" FromRole="MATCH_DETAILS" ToRole="CountryDetail" />
+    <NavigationProperty Name="CountryDetail1" Relationship="Self.FK__MATCH_DET__count__4222D4EF" FromRole="MATCH_DETAILS" ToRole="CountryDetail" />
+  </EntityType>
+  <EntityType Name="Players_Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="L_name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Skill" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Country_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CountryDetail" Relationship="Self.FK_CounPlayer" FromRole="Players_Detail" ToRole="CountryDetail" />
+  </EntityType>
+  <Association Name="FK__MATCH_DET__count__412EB0B6">
+    <End Role="CountryDetail" Type="Self.CountryDetail" Multiplicity="0..1" />
+    <End Role="MATCH_DETAILS" Type="Self.MATCH_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryDetail">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="MATCH_DETAILS">
+        <PropertyRef Name="country1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MATCH_DET__count__4222D4EF">
+    <End Role="CountryDetail" Type="Self.CountryDetail" Multiplicity="0..1" />
+    <End Role="MATCH_DETAILS" Type="Self.MATCH_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryDetail">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="MATCH_DETAILS">
+        <PropertyRef Name="country2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CounPlayer">
+    <End Role="CountryDetail" Type="Self.CountryDetail" Multiplicity="1" />
+    <End Role="Players_Detail" Type="Self.Players_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryDetail">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Players_Detail">
+        <PropertyRef Name="Country_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdminDBIccWorldCupEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminDetails" EntityType="Self.AdminDetail" />
+    <EntitySet Name="CountryDetails" EntityType="Self.CountryDetail" />
+    <EntitySet Name="MATCH_DETAILS" EntityType="Self.MATCH_DETAILS" />
+    <EntitySet Name="Players_Detail" EntityType="Self.Players_Detail" />
+    <AssociationSet Name="FK__MATCH_DET__count__412EB0B6" Association="Self.FK__MATCH_DET__count__412EB0B6">
+      <End Role="CountryDetail" EntitySet="CountryDetails" />
+      <End Role="MATCH_DETAILS" EntitySet="MATCH_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MATCH_DET__count__4222D4EF" Association="Self.FK__MATCH_DET__count__4222D4EF">
+      <End Role="CountryDetail" EntitySet="CountryDetails" />
+      <End Role="MATCH_DETAILS" EntitySet="MATCH_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CounPlayer" Association="Self.FK_CounPlayer">
+      <End Role="CountryDetail" EntitySet="CountryDetails" />
+      <End Role="Players_Detail" EntitySet="Players_Detail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
